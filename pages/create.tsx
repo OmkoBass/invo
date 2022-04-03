@@ -65,7 +65,6 @@ const Create: NextPage = () => {
 
   const handleFormSubmit = (values: Invoice) => {
     setPdfData(values);
-    console.log(values);
   };
 
   return (
