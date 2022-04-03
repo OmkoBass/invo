@@ -1,6 +1,8 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { MantineProvider } from "@mantine/core";
+import { MantineProvider, AppShell } from "@mantine/core";
+
+import MyHeader from "../components/Header";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -11,7 +13,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         colorScheme: "dark",
       }}
     >
-      <Component {...pageProps} />
+      <AppShell padding="md" header={<MyHeader height={78} p={"xs"} />}>
+        <Component {...pageProps} />
+      </AppShell>
     </MantineProvider>
   );
 }
