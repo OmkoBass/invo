@@ -12,6 +12,15 @@
 - [x] easy to understand
 - [x] scalable
 
+Screenshots:
+#### Home
+![Home](/example/Home.png)
+
+#### Create Invoice First
+![Create Invoice First](/example/Invoice_First.png)
+
+#### Create Invoice Second
+![Create Invoice Second](/example/Invoice_Second.png)
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
