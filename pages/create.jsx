@@ -15,11 +15,8 @@ import {
 
 import { useForm, formList } from "@mantine/form";
 
-import Invoice from "../types/invoice";
 import { DatePicker } from "@mantine/dates";
 import PDF from "../components/PDF";
-
-import InvoiceData from "../types/invoiceData";
 
 const Create = () => {
   const [pdfData, setPdfData] =
