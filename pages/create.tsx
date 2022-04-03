@@ -240,13 +240,13 @@ const Create: NextPage = () => {
                 />
 
                 <NumberInput
-                  label="price"
+                  label="Price"
                   placeholder="500"
                   {...form.getListInputProps("invoiceData", index, "price")}
                 />
 
                 <NumberInput
-                  label="total"
+                  label="Total"
                   placeholder="6000"
                   {...form.getListInputProps("invoiceData", index, "total")}
                 />
