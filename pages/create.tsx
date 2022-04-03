@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import { useState } from "react";
+import Head from "next/head";
 
 import {
   Container,
@@ -65,6 +66,11 @@ const Create: NextPage = () => {
 
   return (
     <Container size="md">
+      <Head>
+        <title>Create Invoice</title>
+        <meta name="description" content="Fill out the fields and create your invoice." />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Title> Crete your invoice here </Title>
       <Text color="gray">
         Just fill out these fields and the invoice will be created below. You can leave
