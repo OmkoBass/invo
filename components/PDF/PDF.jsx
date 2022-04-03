@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 
 import dynamic from "next/dynamic";
 
-import Invoice from "../../types/invoice";
-
 import Separator from "../Separator";
 
 import { Document, Page, View, Text, StyleSheet, Font } from "@react-pdf/renderer";
@@ -13,15 +11,15 @@ import { Document, Page, View, Text, StyleSheet, Font } from "@react-pdf/rendere
 // and next will try to render it
 // on the server side
 const PDFViewer = dynamic(
-  (): any => import("@react-pdf/renderer").then((pdf) => pdf.PDFViewer),
+  () => import("@react-pdf/renderer").then((pdf) => pdf.PDFViewer),
   { ssr: false }
 );
 
 import dayjs from "dayjs";
 
-interface Props {
-  invoice: Invoice;
-}
+// interface Props {
+//   invoice: Invoice;
+// }
 
 const styles = StyleSheet.create({
   invoiceTitle: {
@@ -50,7 +48,7 @@ const styles = StyleSheet.create({
 });
 
 // THE STYLING IS BAD BECAUSE IT WON'T WORK ANY OTHER WAY
-export const PDF: React.FC<Props> = ({ invoice }) => {
+export const PDF = ({ invoice }) => {
   useEffect(() => {
     Font.register({
       family: "Poppins",
