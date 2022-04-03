@@ -19,10 +19,28 @@ import { DatePicker } from "@mantine/dates";
 import PDF from "../components/PDF";
 
 const Create = () => {
-  const [pdfData, setPdfData] =
-    useState <
-    Invoice >
-    {
+  const [pdfData, setPdfData] = useState({
+    invoiceName: "",
+    img: "",
+    date: new Date(),
+    place: "",
+    fromName: "",
+    fromFirm: "",
+    fromStreet: "",
+    fromCity: "",
+    fromPIB: "",
+    fromAccount: "",
+    toEmail: "",
+    toName: "",
+    toAddress: "",
+    toCity: "",
+    toPIB: "",
+    toAccount: "",
+    invoiceData: [],
+  });
+
+  const form = useForm({
+    initialValues: {
       invoiceName: "",
       img: "",
       date: new Date(),
@@ -39,49 +57,22 @@ const Create = () => {
       toCity: "",
       toPIB: "",
       toAccount: "",
-      invoiceData: [],
-    };
-
-  const form =
-    useForm <
-    Invoice >
-    {
-      initialValues: {
-        invoiceName: "",
-        img: "",
-        date: new Date(),
-        place: "",
-        fromName: "",
-        fromFirm: "",
-        fromStreet: "",
-        fromCity: "",
-        fromPIB: "",
-        fromAccount: "",
-        toEmail: "",
-        toName: "",
-        toAddress: "",
-        toCity: "",
-        toPIB: "",
-        toAccount: "",
-        invoiceData: formList < InvoiceData > [],
-      },
-    };
+      invoiceData: formList([]),
+    },
+  });
 
   const handleFormSubmit = (values) => {
     setPdfData(values);
   };
 
   useEffect(() => {
-    form.addListItem < any,
-      any >
-        ("invoiceData",
-        {
-          serviceType: "",
-          unit: 0,
-          amount: 0,
-          price: 0,
-          total: 0,
-        });
+    form.addListItem("invoiceData", {
+      serviceType: "",
+      unit: 0,
+      amount: 0,
+      price: 0,
+      total: 0,
+    });
   }, []);
 
   return (
