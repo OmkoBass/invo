@@ -1,12 +1,11 @@
 import type { NextPage } from "next";
 import React from "react";
 
-import { Container, TextInput, NumberInput, Button } from "@mantine/core";
+import { Container, TextInput, Button } from "@mantine/core";
 
 import { useForm } from "@mantine/hooks";
 
 import invoice from "../types/invoice";
-import invoiceData from "../types/invoiceData";
 import { DatePicker } from "@mantine/dates";
 
 const Create: NextPage = () => {
