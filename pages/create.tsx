@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { useState, Fragment } from "react";
+import { useState, useEffect, Fragment } from "react";
 import Head from "next/head";
 
 import {
@@ -69,6 +69,16 @@ const Create: NextPage = () => {
     setPdfData(values);
   };
 
+  useEffect(() => {
+    form.addListItem<any, any>("invoiceData", {
+      serviceType: "",
+      unit: 0,
+      amount: 0,
+      price: 0,
+      total: 0,
+    });
+  }, []);
+
   return (
     <Container size="md">
       <Head>
@@ -76,10 +86,22 @@ const Create: NextPage = () => {
         <meta name="description" content="Fill out the fields and create your invoice." />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Title> Crete your invoice here </Title>
+      <Text
+        variant="gradient"
+        gradient={{ from: "blue", to: "red", deg: 190 }}
+        size="xl"
+        weight={700}
+        style={{ fontSize: 48 }}
+      >
+        Crete your invoice here
+      </Text>
       <Text color="gray">
-        Just fill out these fields and the invoice will be created below. You can leave
-        any field empty and it will still work. You can create whatever you want.
+        Just fill out these fields and the{" "}
+        <Text component="span" inherit color="blue">
+          invoice will be created below
+        </Text>
+        . You can leave any field empty except Invoice Name and it will work. You can
+        create whatever you want.
       </Text>
 
       <form onSubmit={form.onSubmit((values) => handleFormSubmit(values))}>
