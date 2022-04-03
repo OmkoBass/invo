@@ -1,3 +1,18 @@
+# Invo
+
+### A simple, free and open source app to generate invoices easily and instantly.
+#### Had to remove some typescript features cause of netlify build failing. :(
+
+#### Features
+- [x] create invoice
+- [x] no ads
+- [x] free
+- [x] open source
+- [x] very fast
+- [x] easy to understand
+- [x] scalable
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
