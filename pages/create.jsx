@@ -254,16 +254,13 @@ const Create = () => {
           fullWidth
           variant="light"
           onClick={() => {
-            form.addListItem < any,
-              any >
-                ("invoiceData",
-                {
-                  serviceType: "",
-                  unit: 0,
-                  amount: 0,
-                  price: 0,
-                  total: 0,
-                });
+            form.addListItem("invoiceData", {
+              serviceType: "",
+              unit: 0,
+              amount: 0,
+              price: 0,
+              total: 0,
+            });
           }}
         >
           Add
