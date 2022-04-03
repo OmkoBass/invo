@@ -252,7 +252,7 @@ const Create: NextPage = () => {
         </Button>
       </form>
 
-      {pdfData && <PDF invoice={pdfData} />}
+      {pdfData.invoiceName && <PDF invoice={pdfData} />}
     </Container>
   );
 };
