@@ -86,13 +86,7 @@ const Create: NextPage = () => {
         <meta name="description" content="Fill out the fields and create your invoice." />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Text
-        variant="gradient"
-        gradient={{ from: "blue", to: "red", deg: 190 }}
-        size="xl"
-        weight={700}
-        style={{ fontSize: 48 }}
-      >
+      <Text color="blue" size="xl" weight={700} style={{ fontSize: 48 }}>
         Crete your invoice here
       </Text>
       <Text color="gray">
