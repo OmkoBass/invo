@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { useState } from "react";
+import { useState, Fragment } from "react";
 import Head from "next/head";
 
 import {
@@ -11,13 +11,16 @@ import {
   Text,
   Divider,
   Box,
+  NumberInput,
 } from "@mantine/core";
 
-import { useForm } from "@mantine/hooks";
+import { useForm, formList } from "@mantine/form";
 
 import Invoice from "../types/invoice";
 import { DatePicker } from "@mantine/dates";
 import PDF from "../components/PDF";
+
+import InvoiceData from "../types/invoiceData";
 
 const Create: NextPage = () => {
   const [pdfData, setPdfData] = useState<Invoice>({
@@ -56,12 +59,13 @@ const Create: NextPage = () => {
       toAddress: "",
       toCity: "",
       toPIB: "",
-      invoiceData: [],
+      invoiceData: formList<InvoiceData>([]),
     },
   });
 
   const handleFormSubmit = (values: Invoice) => {
     setPdfData(values);
+    console.log(values);
   };
 
   return (
@@ -179,6 +183,69 @@ const Create: NextPage = () => {
             {...form.getInputProps("toPIB")}
           />
         </SimpleGrid>
+
+        <Divider my={12} />
+
+        <SimpleGrid
+          cols={5}
+          my={12}
+          spacing="lg"
+          breakpoints={[
+            { maxWidth: 755, cols: 5, spacing: "md" },
+            { maxWidth: 600, cols: 1, spacing: "sm" },
+          ]}
+        >
+          {form.values.invoiceData.map((_, index) => {
+            return (
+              <Fragment key={index}>
+                <TextInput
+                  label="Service Type"
+                  placeholder="Potato Sale"
+                  {...form.getListInputProps("invoiceData", index, "serviceType")}
+                />
+
+                <NumberInput
+                  label="Unit"
+                  placeholder="1 ton"
+                  {...form.getListInputProps("invoiceData", index, "unit")}
+                />
+
+                <NumberInput
+                  label="Amount"
+                  placeholder="12"
+                  {...form.getListInputProps("invoiceData", index, "amount")}
+                />
+
+                <NumberInput
+                  label="price"
+                  placeholder="500"
+                  {...form.getListInputProps("invoiceData", index, "price")}
+                />
+
+                <NumberInput
+                  label="total"
+                  placeholder="6000"
+                  {...form.getListInputProps("invoiceData", index, "total")}
+                />
+              </Fragment>
+            );
+          })}
+        </SimpleGrid>
+        <Button
+          fullWidth
+          variant="light"
+          onClick={() => {
+            form.addListItem<any, any>("invoiceData", {
+              serviceType: "",
+              unit: 0,
+              amount: 0,
+              price: 0,
+              total: 0,
+            });
+          }}
+        >
+          Add
+        </Button>
 
         <Button type="submit" size="lg" my={18}>
           Create
