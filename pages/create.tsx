@@ -1,7 +1,16 @@
 import type { NextPage } from "next";
 import React from "react";
 
-import { Container, TextInput, Button } from "@mantine/core";
+import {
+  Container,
+  TextInput,
+  Button,
+  SimpleGrid,
+  Title,
+  Text,
+  Divider,
+  Box,
+} from "@mantine/core";
 
 import { useForm } from "@mantine/hooks";
 
@@ -35,97 +44,117 @@ const Create: NextPage = () => {
   };
 
   return (
-    <Container>
+    <Container size="md">
+      <Title> Crete your invoice here </Title>
+      <Text color="gray">
+        Just fill out these fields and the invoice will be created below. You can leave
+        any field empty and it will still work. You can create whatever you want.
+      </Text>
+
       <form onSubmit={form.onSubmit((values) => handleFormSubmit(values))}>
+        <Box my={12}>
+          <Title order={2}>Who is sending the invoice.</Title>
+          <Divider />
+        </Box>
+
         <TextInput
-          required
           label="Invoice Name"
           placeholder="Invo"
           {...form.getInputProps("invoiceName")}
         />
 
-        <DatePicker label="Invoice Date" {...form.getInputProps("date")} />
+        <SimpleGrid
+          cols={2}
+          my={12}
+          spacing="lg"
+          breakpoints={[
+            { maxWidth: 755, cols: 2, spacing: "md" },
+            { maxWidth: 600, cols: 1, spacing: "sm" },
+          ]}
+        >
+          <DatePicker label="Invoice Date" {...form.getInputProps("date")} />
 
-        <TextInput
-          required
-          label="Place"
-          placeholder="Miami Florida"
-          {...form.getInputProps("place")}
-        />
+          <TextInput
+            label="Place"
+            placeholder="Miami Florida"
+            {...form.getInputProps("place")}
+          />
 
-        <TextInput
-          required
-          label="From"
-          placeholder="Jack"
-          {...form.getInputProps("fromName")}
-        />
+          <TextInput
+            label="From"
+            placeholder="Jack"
+            {...form.getInputProps("fromName")}
+          />
 
-        <TextInput
-          required
-          label="Firm"
-          placeholder="Firm"
-          {...form.getInputProps("fromFirm")}
-        />
+          <TextInput
+            label="Firm"
+            placeholder="Firm"
+            {...form.getInputProps("fromFirm")}
+          />
 
-        <TextInput
-          required
-          label="Street"
-          placeholder="NW St 20th"
-          {...form.getInputProps("fromStreet")}
-        />
+          <TextInput
+            label="Street"
+            placeholder="NW St 20th"
+            {...form.getInputProps("fromStreet")}
+          />
 
-        <TextInput
-          required
-          label="City"
-          placeholder="Miami"
-          {...form.getInputProps("fromCity")}
-        />
+          <TextInput
+            label="City"
+            placeholder="Miami"
+            {...form.getInputProps("fromCity")}
+          />
 
-        <TextInput required label="PIB" {...form.getInputProps("fromPIB")} />
+          <TextInput
+            label="PIB"
+            placeholder="69969888684"
+            {...form.getInputProps("fromPIB")}
+          />
 
-        <TextInput
-          required
-          label="Account"
-          placeholder="88188752422"
-          {...form.getInputProps("fromAccount")}
-        />
+          <TextInput
+            label="Account"
+            placeholder="88188752422"
+            {...form.getInputProps("fromAccount")}
+          />
+        </SimpleGrid>
 
-        <TextInput
-          required
-          label="Email"
-          placeholder="invo@me"
-          {...form.getInputProps("fromEmail")}
-        />
+        <Box my={12}>
+          <Title order={2}>Who the invoice is for.</Title>
+          <Divider />
+        </Box>
 
-        <TextInput
-          required
-          label="Name"
-          placeholder="John"
-          {...form.getInputProps("toName")}
-        />
+        <SimpleGrid
+          cols={2}
+          my={12}
+          spacing="lg"
+          breakpoints={[
+            { maxWidth: 755, cols: 2, spacing: "md" },
+            { maxWidth: 600, cols: 1, spacing: "sm" },
+          ]}
+        >
+          <TextInput
+            label="Email"
+            placeholder="invo@me"
+            {...form.getInputProps("fromEmail")}
+          />
 
-        <TextInput
-          required
-          label="Address"
-          placeholder="NW 77th Avenue"
-          {...form.getInputProps("toAddress")}
-        />
+          <TextInput label="Name" placeholder="John" {...form.getInputProps("toName")} />
 
-        <TextInput
-          required
-          label="City"
-          placeholder="Miami"
-          {...form.getInputProps("toCity")}
-        />
+          <TextInput
+            label="Address"
+            placeholder="NW 77th Avenue"
+            {...form.getInputProps("toAddress")}
+          />
 
-        <TextInput
-          required
-          label="PIB"
-          placeholder="11544458355"
-          {...form.getInputProps("toPIB")}
-        />
+          <TextInput label="City" placeholder="Miami" {...form.getInputProps("toCity")} />
 
-        <Button type="submit" size="lg">
+          <TextInput
+            label="PIB"
+            placeholder="11544458355"
+            {...form.getInputProps("toPIB")}
+          />
+        </SimpleGrid>
+
+        <Button type="submit" size="lg" my={18}>
           Create
         </Button>
       </form>
