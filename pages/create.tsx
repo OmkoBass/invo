@@ -34,11 +34,12 @@ const Create: NextPage = () => {
     fromCity: "",
     fromPIB: "",
     fromAccount: "",
-    fromEmail: "",
+    toEmail: "",
     toName: "",
     toAddress: "",
     toCity: "",
     toPIB: "",
+    toAccount: "",
     invoiceData: [],
   });
 
@@ -54,11 +55,12 @@ const Create: NextPage = () => {
       fromCity: "",
       fromPIB: "",
       fromAccount: "",
-      fromEmail: "",
+      toEmail: "",
       toName: "",
       toAddress: "",
       toCity: "",
       toPIB: "",
+      toAccount: "",
       invoiceData: formList<InvoiceData>([]),
     },
   });
@@ -180,6 +182,12 @@ const Create: NextPage = () => {
             label="PIB"
             placeholder="11544458355"
             {...form.getInputProps("toPIB")}
+          />
+
+          <TextInput
+            label="Account"
+            placeholder="487778112354"
+            {...form.getInputProps("toAccount")}
           />
         </SimpleGrid>
 
