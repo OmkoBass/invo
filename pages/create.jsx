@@ -1,4 +1,3 @@
-import type { NextPage } from "next";
 import { useState, useEffect, Fragment } from "react";
 import Head from "next/head";
 
@@ -22,29 +21,11 @@ import PDF from "../components/PDF";
 
 import InvoiceData from "../types/invoiceData";
 
-const Create: NextPage = () => {
-  const [pdfData, setPdfData] = useState<Invoice>({
-    invoiceName: "",
-    img: "",
-    date: new Date(),
-    place: "",
-    fromName: "",
-    fromFirm: "",
-    fromStreet: "",
-    fromCity: "",
-    fromPIB: "",
-    fromAccount: "",
-    toEmail: "",
-    toName: "",
-    toAddress: "",
-    toCity: "",
-    toPIB: "",
-    toAccount: "",
-    invoiceData: [],
-  });
-
-  const form = useForm<Invoice>({
-    initialValues: {
+const Create = () => {
+  const [pdfData, setPdfData] =
+    useState <
+    Invoice >
+    {
       invoiceName: "",
       img: "",
       date: new Date(),
@@ -61,22 +42,49 @@ const Create: NextPage = () => {
       toCity: "",
       toPIB: "",
       toAccount: "",
-      invoiceData: formList<InvoiceData>([]),
-    },
-  });
+      invoiceData: [],
+    };
 
-  const handleFormSubmit = (values: Invoice) => {
+  const form =
+    useForm <
+    Invoice >
+    {
+      initialValues: {
+        invoiceName: "",
+        img: "",
+        date: new Date(),
+        place: "",
+        fromName: "",
+        fromFirm: "",
+        fromStreet: "",
+        fromCity: "",
+        fromPIB: "",
+        fromAccount: "",
+        toEmail: "",
+        toName: "",
+        toAddress: "",
+        toCity: "",
+        toPIB: "",
+        toAccount: "",
+        invoiceData: formList < InvoiceData > [],
+      },
+    };
+
+  const handleFormSubmit = (values) => {
     setPdfData(values);
   };
 
   useEffect(() => {
-    form.addListItem<any, any>("invoiceData", {
-      serviceType: "",
-      unit: 0,
-      amount: 0,
-      price: 0,
-      total: 0,
-    });
+    form.addListItem < any,
+      any >
+        ("invoiceData",
+        {
+          serviceType: "",
+          unit: 0,
+          amount: 0,
+          price: 0,
+          total: 0,
+        });
   }, []);
 
   return (
@@ -258,13 +266,16 @@ const Create: NextPage = () => {
           fullWidth
           variant="light"
           onClick={() => {
-            form.addListItem<any, any>("invoiceData", {
-              serviceType: "",
-              unit: 0,
-              amount: 0,
-              price: 0,
-              total: 0,
-            });
+            form.addListItem < any,
+              any >
+                ("invoiceData",
+                {
+                  serviceType: "",
+                  unit: 0,
+                  amount: 0,
+                  price: 0,
+                  total: 0,
+                });
           }}
         >
           Add
