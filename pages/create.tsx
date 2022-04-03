@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import React from "react";
+import { useState } from "react";
 
 import {
   Container,
@@ -14,11 +14,31 @@ import {
 
 import { useForm } from "@mantine/hooks";
 
-import invoice from "../types/invoice";
+import Invoice from "../types/invoice";
 import { DatePicker } from "@mantine/dates";
+import PDF from "../components/PDF";
 
 const Create: NextPage = () => {
-  const form = useForm<invoice>({
+  const [pdfData, setPdfData] = useState<Invoice>({
+    invoiceName: "",
+    img: "",
+    date: new Date(),
+    place: "",
+    fromName: "",
+    fromFirm: "",
+    fromStreet: "",
+    fromCity: "",
+    fromPIB: "",
+    fromAccount: "",
+    fromEmail: "",
+    toName: "",
+    toAddress: "",
+    toCity: "",
+    toPIB: "",
+    invoiceData: [],
+  });
+
+  const form = useForm<Invoice>({
     initialValues: {
       invoiceName: "",
       img: "",
@@ -39,8 +59,8 @@ const Create: NextPage = () => {
     },
   });
 
-  const handleFormSubmit = (values: invoice) => {
-    console.log(values);
+  const handleFormSubmit = (values: Invoice) => {
+    setPdfData(values);
   };
 
   return (
@@ -158,6 +178,8 @@ const Create: NextPage = () => {
           Create
         </Button>
       </form>
+
+      {pdfData && <PDF invoice={pdfData} />}
     </Container>
   );
 };
