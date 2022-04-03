@@ -1,12 +1,21 @@
 import React, { useEffect } from "react";
 
-import Invoice from "../../types/invoice";
+import dynamic from "next/dynamic";
 
-import PDFViewer from "../PDFViewer";
+import Invoice from "../../types/invoice";
 
 import Separator from "../Separator";
 
 import { Document, Page, View, Text, StyleSheet, Font } from "@react-pdf/renderer";
+
+// I have to import it like this
+// because it uses a webapi
+// and next will try to render it
+// on the server side
+const PDFViewer = dynamic(
+  (): any => import("@react-pdf/renderer").then((pdf) => pdf.PDFViewer),
+  { ssr: false }
+);
 
 import dayjs from "dayjs";
 
