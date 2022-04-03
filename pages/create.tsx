@@ -165,7 +165,7 @@ const Create: NextPage = () => {
           <TextInput
             label="Email"
             placeholder="invo@me"
-            {...form.getInputProps("fromEmail")}
+            {...form.getInputProps("toEmail")}
           />
 
           <TextInput label="Name" placeholder="John" {...form.getInputProps("toName")} />
