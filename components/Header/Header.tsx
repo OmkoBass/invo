@@ -104,13 +104,7 @@ export const MyHeader: React.FC<Props> = ({ height, p }) => {
           </Link>
         </Group>
 
-        <Text
-          variant="gradient"
-          gradient={{ from: "blue", to: "orange", deg: 90 }}
-          size="xl"
-          weight={700}
-          style={{ fontSize: 48 }}
-        >
+        <Text color="blue" size="xl" weight={700} style={{ fontSize: 48 }}>
           Invo
         </Text>
         <Group spacing={0} className={classes.social} position="right" noWrap>
