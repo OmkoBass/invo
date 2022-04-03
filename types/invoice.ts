@@ -11,10 +11,11 @@ export default interface Invoice {
   fromCity: string;
   fromPIB: string;
   fromAccount: string;
-  fromEmail: string;
+  toEmail: string;
   toName: string;
   toAddress: string;
   toCity: string;
   toPIB: string;
+  toAccount: string;
   invoiceData: InvoiceData[];
 }
